@@ -1,0 +1,102 @@
+#include <stdio.h>
+
+int main() {
+    float account1 = 0, account2 = 0, account3 = 0;
+    int choice, accountNumber, amount;
+
+    while (1) {
+        printf("\nMenu:\n");
+        printf("1. Deposit\n");
+        printf("2. Withdraw\n");
+        printf("3. Check Balance\n");
+        printf("4. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                printf("Enter account number (1, 2, or 3): ");
+                scanf("%d", &accountNumber);
+
+                printf("Enter amount to deposit: ");
+                scanf("%d", &amount);
+
+                switch (accountNumber) {
+                    case 1:
+                        account1 += amount;
+                        break;
+                    case 2:
+                        account2 += amount;
+                        break;
+                    case 3:
+                        account3 += amount;
+                        break;
+                    default:
+                        printf("Invalid account number.\n");
+                }
+                break;
+
+            case 2:
+                printf("Enter account number (1, 2, or 3): ");
+                scanf("%d", &accountNumber);
+
+                printf("Enter amount to withdraw: ");
+                scanf("%d", &amount);
+
+                switch (accountNumber) {
+                    case 1:
+                        if (amount <= account1) {
+                            account1 -= amount;
+                        } else {
+                            printf("Insufficient balance in account 1.\n");
+                        }
+                        break;
+                    case 2:
+                        if (amount <= account2) {
+                            account2 -= amount;
+                        } else {
+                            printf("Insufficient balance in account 2.\n");
+                        }
+                        break;
+                    case 3:
+                        if (amount <= account3) {
+                            account3 -= amount;
+                        } else {
+                            printf("Insufficient balance in account 3.\n");
+                        }
+                        break;
+                    default:
+                        printf("Invalid account number.\n");
+                }
+                break;
+
+            case 3:
+                printf("Enter account number (1, 2, or 3): ");
+                scanf("%d", &accountNumber);
+
+                switch (accountNumber) {
+                    case 1:
+                        printf("Balance in account 1: %.2f\n", account1);
+                        break;
+                    case 2:
+                        printf("Balance in account 2: %.2f\n", account2);
+                        break;
+                    case 3:
+                        printf("Balance in account 3: %.2f\n", account3);
+                        break;
+                    default:
+                        printf("Invalid account number.\n");
+                }
+                break;
+
+            case 4:
+                printf("Exiting program.\n");
+                return 0;
+
+            default:
+                printf("Invalid choice.\n");
+        }
+    }
+
+    return 0;
+}
